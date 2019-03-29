@@ -2,14 +2,114 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bc1c8ab-50f7-456a-87ba-a34d5e1ac4b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/glyph/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/glyph/src/main/kotlin/io/lamart/glyph/Glyph.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/glyph/src/main/kotlin/io/lamart/glyph/Scope.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Glyph_jvm_0_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/js/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/js/src/main/kotlin/io/lamart/glyph/theAnswer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jvm/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jvm/src/main/kotlin/io/lamart/glyph/theAnswer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Emitter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/main.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/test/kotlin/io/lamart/glyph/test/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/io.lamart.Glyph.commonMain.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/io.lamart.Glyph.commonTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/io.lamart.Glyph.jsMain.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/io.lamart.Glyph.jsTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/io.lamart.Glyph.jvmMain.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/io.lamart.Glyph.jvmTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/js/main/Glyph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/js/main/Glyph.meta.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/js/main/Glyph/io/lamart/glyph/glyph.kjsm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/META-INF/io.lamart.Glyph.jvmMain.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$sam$i$io_reactivex_functions_Consumer$0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toReceiver$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toReceiver$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toReceiver$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toReceiver$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toReceiver$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toSender$1$1$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toSender$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toSender$2$1$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt$toSender$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/RxUtilsKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/Disposable$DefaultImpls.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/Disposable$toDispose$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/Disposable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/DisposableCollection$dispose$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/DisposableCollection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/DisposeKt$dispose$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/DisposeKt$dispose$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/DisposeKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/GlyphKt$glyph$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/GlyphKt$glyph$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/GlyphKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/Scope$plus$$inlined$also$lambda$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/Scope.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$after$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$before$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$cast$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$$inlined$let$lambda$1$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$$inlined$let$lambda$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$$inlined$let$lambda$1$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$$inlined$let$lambda$1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$$inlined$let$lambda$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$1$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$1$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$combine$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$compose$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$distinct$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$distinct$2$$special$$inlined$also$lambda$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$distinct$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$filter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$flatMap$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$map$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$prepend$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$prepend$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$wrap$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt$wrap$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/jvm/main/io/lamart/glyph/SenderKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Dispose.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Dispose.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Glyph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Glyph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Scope.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Scope.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Sender.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Sender.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jvmMain/kotlin/RxUtils.kt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/common/.gradle/" />
+    <ignored path="$PROJECT_DIR$/common/build/" />
+    <ignored path="$PROJECT_DIR$/common/out/" />
+    <ignored path="$PROJECT_DIR$/common/jvm/.gradle/" />
+    <ignored path="$PROJECT_DIR$/common/jvm/build/" />
+    <ignored path="$PROJECT_DIR$/common/jvm/out/" />
+    <ignored path="$PROJECT_DIR$/common/js/.gradle/" />
+    <ignored path="$PROJECT_DIR$/common/js/build/" />
+    <ignored path="$PROJECT_DIR$/common/js/out/" />
+    <ignored path="$PROJECT_DIR$/lib/.gradle/" />
+    <ignored path="$PROJECT_DIR$/lib/build/" />
+    <ignored path="$PROJECT_DIR$/lib/out/" />
+    <ignored path="$PROJECT_DIR$/lib/js/.gradle/" />
+    <ignored path="$PROJECT_DIR$/lib/js/build/" />
+    <ignored path="$PROJECT_DIR$/lib/js/out/" />
+    <ignored path="$PROJECT_DIR$/lib/jvm/.gradle/" />
+    <ignored path="$PROJECT_DIR$/lib/jvm/build/" />
+    <ignored path="$PROJECT_DIR$/lib/jvm/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,75 +121,123 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/lib">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Glyph" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Glyph" type="f1a62948:ProjectNode" />
+                <item name=":lib" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Glyph" type="f1a62948:ProjectNode" />
+                <item name=":lib" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Scope.kt">
+        <entry file="file://$PROJECT_DIR$/lib/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="67" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="67" />
+            <state relative-caret-position="60">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Sender.kt">
+        <entry file="file://$PROJECT_DIR$/lib/jvm/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="75">
+              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/js/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.gradle">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Dispose.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="30">
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Glyph.kt">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Emitter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="225">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Dispose.kt">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/main.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Glyph.kt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Sender.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3195">
+              <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/src/test/kotlin/io/lamart/glyph/test/main.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jvmMain/kotlin/RxUtils.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <element signature="e#0#323#0" expanded="true" />
+                <element signature="e#30#116#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.0/ba88ed6468f28df009c013256be77ad72d313965/rxjava-2.2.0-sources.jar!/io/reactivex/internal/subscribers/LambdaSubscriber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -99,6 +247,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Class" />
         <option value="Kotlin File" />
       </list>
     </option>
@@ -113,6 +262,9 @@
       <find>argument</find>
       <find>LambdaObserver</find>
       <find>LambdaS</find>
+      <find>etyr</find>
+      <find>befor</find>
+      <find>window</find>
     </findStrings>
     <replaceStrings>
       <replace>`argument`</replace>
@@ -126,22 +278,34 @@
       <list>
         <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Glyph.kt" />
         <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Dispose.kt" />
-        <option value="$PROJECT_DIR$/lib/build.gradle" />
         <option value="$PROJECT_DIR$/gradle.properties" />
         <option value="$PROJECT_DIR$/glyph/build.gradle" />
         <option value="$PROJECT_DIR$/sender/build.gradle" />
-        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Sender.kt" />
         <option value="$PROJECT_DIR$/src/jvmMain/kotlin/RxUtils.kt" />
         <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Scope.kt" />
-        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Sender.kt" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Emitter.kt" />
+        <option value="$PROJECT_DIR$/common/js/build.gradle" />
+        <option value="$PROJECT_DIR$/common/jvm/build.gradle" />
+        <option value="$PROJECT_DIR$/common/build.gradle" />
+        <option value="$PROJECT_DIR$/common/src/main/kotlin/io/lamart/glyph/main.kt" />
+        <option value="$PROJECT_DIR$/common/jvm/src/main/kotlin/io/lamart/glyph/theAnswer.kt" />
+        <option value="$PROJECT_DIR$/common/js/src/main/kotlin/io/lamart/glyph/theAnswer.kt" />
+        <option value="$PROJECT_DIR$/lib/jvm/build.gradle" />
         <option value="$PROJECT_DIR$/settings.gradle" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/lib/js/build.gradle" />
+        <option value="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Dispose.kt" />
+        <option value="$PROJECT_DIR$/lib/build.gradle" />
+        <option value="$PROJECT_DIR$/lib/src/test/kotlin/io/lamart/glyph/test/main.kt" />
+        <option value="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Sender.kt" />
+        <option value="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Emitter.kt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="160" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1280" />
+    <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -162,65 +326,137 @@
             <path>
               <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
               <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="js" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
               <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
               <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
               <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
               <item name="glyph" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
               <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commonTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
               <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="jvmMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="jvmMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Glyph" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Glyph" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Glyph" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="lib" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Glyph" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="lib" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Glyph" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="lib" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Glyph" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="lib" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="lib" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="io" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="io" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="lamart" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="Glyph" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="io" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="lamart" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Glyph" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553795519549" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553849273154" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph" />
       <recent name="$PROJECT_DIR$/sender/src/main/kotlin/io/lamart/sender" />
       <recent name="$PROJECT_DIR$/glyph/src/main/kotlin/io/lamart/glyph" />
     </key>
@@ -237,6 +473,52 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Gradle.Glyph [assemble]">
+    <configuration name="Glyph [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Glyph [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Glyph [dependencies]" />
+        <item itemvalue="Gradle.Glyph [assemble]" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -252,10 +534,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49953917" visible="true" weight="0.2167382" />
-      <window_info id="Structure" order="1" sideWeight="0.5004608" side_tool="true" weight="0.14802982" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49808916" visible="true" weight="0.1502146" />
+      <window_info id="Structure" order="1" sideWeight="0.5019108" side_tool="true" weight="0.2167382" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -263,7 +544,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299539" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32903227" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -271,18 +552,22 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="10" visible="true" weight="0.3299363" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3299363" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.32903227" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32903227" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Gradle" order="5" />
+      <window_info anchor="right" id="Gradle" order="5" visible="true" weight="0.15236051" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/ScopeFactory.kt" />
@@ -332,57 +617,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.0/ba88ed6468f28df009c013256be77ad72d313965/rxjava-2.2.0-sources.jar!/io/reactivex/Flowable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="14342" lean-forward="true" selection-start-line="14342" selection-end-line="14342" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sender/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/sender/build.gradle" />
     <entry file="file://$PROJECT_DIR$/gradlew.bat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/glyph/src/main/kotlin/io/lamart/glyph/Glyph.kt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/glyph/build.gradle">
+    <entry file="file://$PROJECT_DIR$/glyph/src/main/kotlin/io/lamart/glyph/Glyph.kt" />
+    <entry file="file://$PROJECT_DIR$/glyph/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/sender/src/main/kotlin/io/lamart/sender/Dispose.kt" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.21/224a3bcfa1c088dd5d7c4a3958a68427b44c65dc/kotlin-stdlib-common-1.3.21-sources.jar!/generated/_Arrays.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sender/src/main/kotlin/io/lamart/sender/Dispose.kt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Sender.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Glyph.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Dispose.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="167">
+          <caret line="11932" column="42" selection-start-line="11932" selection-start-column="42" selection-end-line="11932" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -393,32 +638,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jvmMain/kotlin/RxUtils.kt">
+    <entry file="file://$PROJECT_DIR$/src/jvmMain/kotlin/RxUtils.kt" />
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Scope.kt" />
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Sender.kt" />
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Glyph.kt" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.0/ba88ed6468f28df009c013256be77ad72d313965/rxjava-2.2.0-sources.jar!/io/reactivex/Flowable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#323#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="214335">
+          <caret line="14401" column="22" selection-start-line="14401" selection-start-column="22" selection-end-line="14401" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Scope.kt">
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Emitter.kt" />
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jvm/out/production/classes/io/lamart/glyph/TheAnswerKt.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="67" />
+        <state relative-caret-position="75">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jvm/src/main/kotlin/io/lamart/glyph/theAnswer.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/js/src/main/kotlin/io/lamart/glyph/theAnswer.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/lamart/glyph/Dispose.kt" />
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Scope.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jvm/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/js/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Dispose.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Emitter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Glyph.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/main/kotlin/io/lamart/glyph/Sender.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3195">
+          <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/test/kotlin/io/lamart/glyph/test/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#30#116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -474,7 +811,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>commonTest|io.lamart.Glyph</last-edited>
+          <last-edited>Glyph.lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -499,7 +836,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Gradle: io.reactivex.rxjava2:rxjava:2.2.0</last-edited>
+          <last-edited>Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.21</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
