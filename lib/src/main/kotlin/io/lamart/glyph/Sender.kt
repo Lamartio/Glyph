@@ -20,6 +20,16 @@ interface Sender<T> {
 
             }
 
+        /**
+         * General constructor for a Sender
+         */
+
+        operator fun <T> invoke(vararg items: T): Sender<T> =
+            invoke { receiver ->
+                items.forEach(receiver)
+                dispose
+            }
+
     }
 
     /**
@@ -143,14 +153,14 @@ interface Sender<T> {
 
     private fun record(get: (() -> T)?): Sender<Pair<T, T>> =
         Sender { receiver ->
-            var get = get
+            var getter = get
 
             invoke { next ->
-                get?.invoke()?.let { previous ->
+                getter?.invoke()?.let { previous ->
                     receiver(previous to next)
                 }
 
-                get = { next }
+                getter = { next }
             }
         }
 
@@ -174,7 +184,7 @@ interface Sender<T> {
         }
 
     /**
-     * Combines two streams into one. The `transform` argument is called whenever there is an item available of both streams and emit the result to the next operator.
+     * Combines two streams into one. The `transform` argument is called whenever there is an item available of both streams and emit the result to the emit operator.
      */
 
     fun <R, N> combine(right: Sender<R>, transform: (left: T, right: R) -> N): Sender<N> =
@@ -203,24 +213,18 @@ interface Sender<T> {
             }
         }
 
-    fun first(): Sender<T> {
+    fun first(): Sender<T> = take(1)
+    fun take(count: Int): Sender<T> {
         return Sender { receiver ->
-            var isFirst = true
+            var counter = count
 
             invoke { item ->
-                if (isFirst)
+                if (counter > 0) {
                     receiver(item)
-
-                isFirst = false
+                    counter--
+                }
             }
         }
     }
-
-    fun test(): List<T> =
-        mutableListOf<T>().also { list ->
-            invoke { item ->
-                list.add(item)
-            }
-        }
 
 }

@@ -10,8 +10,9 @@ interface Disposable {
 
     fun dispose()
 
-    fun toDispose() : Dispose = ::dispose
 }
+
+fun Disposable.toDispose() : Dispose = ::dispose
 
 class DisposableCollection(private val collection: MutableCollection<Dispose> = mutableListOf()) :
     MutableCollection<Dispose> by collection, Disposable {
