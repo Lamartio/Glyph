@@ -214,8 +214,8 @@ interface Sender<T> {
         }
 
     fun first(): Sender<T> = take(1)
-    fun take(count: Int): Sender<T> {
-        return Sender { receiver ->
+    fun take(count: Int): Sender<T> =
+        Sender { receiver ->
             var counter = count
 
             invoke { item ->
@@ -225,6 +225,5 @@ interface Sender<T> {
                 }
             }
         }
-    }
 
 }
