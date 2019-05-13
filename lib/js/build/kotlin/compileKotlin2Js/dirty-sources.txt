@@ -1,7 +1,0 @@
-/Users/Danny/Projects/Glyph/lib/js/src/main/kotlin/io/lamart/glyph/theAnswer.kt
-/Users/Danny/Projects/Glyph/lib/src/main/kotlin/io/lamart/glyph/Dispose.kt
-/Users/Danny/Projects/Glyph/lib/src/main/kotlin/io/lamart/glyph/Scope.kt
-/Users/Danny/Projects/Glyph/lib/src/main/kotlin/io/lamart/glyph/Emitter.kt
-/Users/Danny/Projects/Glyph/lib/src/main/kotlin/io/lamart/glyph/main.kt
-/Users/Danny/Projects/Glyph/lib/src/main/kotlin/io/lamart/glyph/Sender.kt
-/Users/Danny/Projects/Glyph/lib/src/main/kotlin/io/lamart/glyph/Glyph.kt

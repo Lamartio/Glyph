@@ -1,6 +1,0 @@
-apply plugin : 'kotlin-platform-jvm'
-
-dependencies {
-    expectedBy project (':lib')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-}

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Glyph-js-0.9">
-    <output-path>$PROJECT_DIR$/build/libs</output-path>
-    <root id="archive" name="Glyph-js-0.9.jar">
-      <element id="module-output" name="io.lamart.Glyph.jsMain" />
-    </root>
-  </artifact>
-</component>
