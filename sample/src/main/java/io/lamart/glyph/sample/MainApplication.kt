@@ -5,8 +5,7 @@ import com.badoo.reaktive.subject.behavior.behaviorSubject
 
 class MainApplication : Application() {
 
-    val state = State()
-    val subject = behaviorSubject(state)
+    val subject = behaviorSubject(State())
     val actions = Actions(subject)
 
 }

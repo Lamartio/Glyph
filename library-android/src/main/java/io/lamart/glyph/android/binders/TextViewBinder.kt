@@ -1,4 +1,4 @@
-package io.lamart.glyph.sample.binder
+package io.lamart.glyph.android.binders
 
 import android.widget.TextView
 import io.lamart.glyph.Bind
