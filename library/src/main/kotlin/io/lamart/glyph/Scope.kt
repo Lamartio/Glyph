@@ -16,9 +16,9 @@ class Scope<D, P, I, O>(
     operator fun plus(parent: P) = withParent(parent)
     fun withParent(parent: P) = Scope(dependencies, parent, input, output)
 
-    operator fun <R> ObservableCompose<I, R>.unaryPlus() = withOutput(this)
-    operator fun <R> plus(compose: ObservableCompose<I, R>) = withOutput(compose)
-    fun <R> withOutput(compose: ObservableCompose<I, R>) = Scope(dependencies, parent, input, input.let(compose))
+    operator fun <R> Compose<I, R>.unaryPlus() = withOutput(this)
+    operator fun <R> plus(compose: Compose<I, R>) = withOutput(compose)
+    fun <R> withOutput(compose: Compose<I, R>) = Scope(dependencies, parent, input, input.let(compose))
 
     operator fun Glyph<D, P, I, O>.unaryPlus(): Dispose = bind(this)
     operator fun plus(glyph: Glyph<D, P, I, O>): Dispose = bind(glyph)

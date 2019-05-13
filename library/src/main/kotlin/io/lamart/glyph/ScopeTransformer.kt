@@ -18,7 +18,7 @@ class ScopeTransformer<D, P, I, O> internal constructor(
     fun <T> input(input: Observable<T>): ScopeTransformer<D, P, T, T> =
         ScopeTransformer(dependencies, parent, input, input)
 
-    fun <T> output(compose: ObservableCompose<I, T>): ScopeTransformer<D, P, I, T> =
+    fun <T> output(compose: Compose<I, T>): ScopeTransformer<D, P, I, T> =
         ScopeTransformer(dependencies, parent, input, input.let(compose))
 
 }
