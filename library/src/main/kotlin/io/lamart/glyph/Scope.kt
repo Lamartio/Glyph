@@ -4,8 +4,7 @@ import com.badoo.reaktive.disposable.CompositeDisposable
 import com.badoo.reaktive.observable.Observable
 import com.badoo.reaktive.observable.subscribe
 
-
-class Scope<D, P, I, O>(
+class Scope<D, P, I, O> private constructor(
     val dependencies: D,
     val parent: P,
     private val input: Observable<I>,
@@ -20,9 +19,9 @@ class Scope<D, P, I, O>(
     operator fun <R> plus(compose: Compose<I, R>) = withOutput(compose)
     fun <R> withOutput(compose: Compose<I, R>) = Scope(dependencies, parent, input, input.let(compose))
 
-    operator fun Glyph<D, P, I, O>.unaryPlus(): Dispose = bind(this)
-    operator fun plus(glyph: Glyph<D, P, I, O>): Dispose = bind(glyph)
-    fun bind(glyph: Glyph<D, P, I, O>): Dispose =
+    operator fun Glyph<D, P, I, O>.unaryPlus() = bind(this)
+    operator fun plus(glyph: Glyph<D, P, I, O>) = bind(glyph)
+    fun bind(glyph: Glyph<D, P, I, O>) =
         CompositeDisposable()
             .also { disposables ->
                 glyph
@@ -36,11 +35,8 @@ class Scope<D, P, I, O>(
             }
             .toDispose()
 
-    fun <W, X, Y, Z> map(transform: ScopeTransformer<D, P, I, O>.() -> ScopeTransformer<W, X, Y, Z>): Scope<W, X, Y, Z> =
-        ScopeTransformer(dependencies, parent, input, output)
-            .let(transform)
-            .run { Scope(dependencies, parent, input, output) }
-
+    fun <W, X, Y, Z> map(transform: (dependencies: D, parent: P, input: Observable<I>, output: Observable<O>) -> Scope<W, X, Y, Z>) =
+        transform(dependencies, parent, input, output)
 
     companion object {
 

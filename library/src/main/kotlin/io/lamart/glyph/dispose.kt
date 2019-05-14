@@ -14,7 +14,7 @@ fun dispose(values: Sequence<Dispose>): Dispose = values.reduce { l, r -> { l();
 fun Disposable.toDispose(): Dispose = ::dispose
 fun Dispose.toDisposable(): Disposable = disposableOf(this)
 
-fun disposableOf(dispose: Dispose): Disposable =
+internal fun disposableOf(dispose: Dispose): Disposable =
     DisposableWrapper().also { disposable ->
         disposable.set(object : Disposable {
 
