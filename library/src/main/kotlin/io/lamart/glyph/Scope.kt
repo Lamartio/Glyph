@@ -4,6 +4,8 @@ import com.badoo.reaktive.disposable.CompositeDisposable
 import com.badoo.reaktive.observable.Observable
 import com.badoo.reaktive.observable.subscribe
 
+typealias Compose<T, R> = (Observable<T>) -> Observable<R>
+
 class Scope<D, P, I, O> private constructor(
     val dependencies: D,
     val parent: P,
