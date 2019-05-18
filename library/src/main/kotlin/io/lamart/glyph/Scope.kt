@@ -37,8 +37,8 @@ class Scope<D, P, I, O> private constructor(
             }
             .toDispose()
 
-    fun <W, X, Y, Z> map(transform: (dependencies: D, parent: P, input: Observable<I>, output: Observable<O>) -> Scope<W, X, Y, Z>) =
-        transform(dependencies, parent, input, output)
+    fun <W, X, Y, Z> map(transform: (dependencies: D, parent: P, input: Observable<I>) -> Scope<W, X, Y, Z>) =
+        transform(dependencies, parent, input)
 
     companion object {
 

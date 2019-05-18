@@ -14,15 +14,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view = FrameLayout(this)
-            .apply {
-                id = View.generateViewId()
-                tag = "root"
-            }
-            .also(::setContentView)
+            .apply { id = View.generateViewId() }
         val app = application.let { it as MainApplication }
-        val scope = Scope(app.actions, view as ViewGroup, app.subject, app.subject)
+        val scope = Scope(app.actions, view as ViewGroup, app.subject)
 
         dispose = scope + mainGlyph()
+        setContentView(view)
     }
 
     override fun onDestroy() {

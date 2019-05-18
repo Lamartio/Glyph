@@ -6,6 +6,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
 import io.lamart.glyph.dispose
 import io.lamart.glyph.sample.*
+import io.lamart.glyph.sample.doc.State
 
 fun incrementGlyph(): SampleGlyph<State> =
     sampleGlyph {

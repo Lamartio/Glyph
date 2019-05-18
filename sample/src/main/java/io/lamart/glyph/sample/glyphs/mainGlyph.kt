@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import io.lamart.glyph.dispose
 import io.lamart.glyph.sample.*
+import io.lamart.glyph.sample.doc.State
 import io.lamart.glyph.state
 
 fun mainGlyph(): SampleGlyph<State> = sampleGlyph {
