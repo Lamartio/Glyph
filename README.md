@@ -166,7 +166,7 @@ Once you tried building some glyphs yourself, you are ready to tackle some more 
 - Bisecting `Dispose` --> TBA
 
 # So why is it called Glyph?
-The goal of Glyph is to realize simple view tree management for the major platforms: Android, iOS and the web browsers. In those paradigms are already a lot of words describing compositions: Module, Component, Branch, Element, Node etc.. It is important that it should not conflict on any platform and it is favourable to have a short and simple name. Therefore I chose Glyph.
+The goal of Glyph is to realize simple view tree management for the major platforms: Android, iOS and the web browsers. In those paradigms there are already a lot of words describing compositions: Module, Component, Branch, Element, Node etc.. It is important that it should not conflict on any platform and it is favourable to have a short and simple name. Therefore I chose Glyph.
 
 # License
 Copyright 2019 Danny Lamarti
