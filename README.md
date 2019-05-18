@@ -4,8 +4,7 @@ In web development it is common to create a single object that describes the sta
 ``` Gradle
 implementation "io.lamart.glyph:core-android:+"
 ```
-- Simple: core functionality is only +-40 lines of code and +-11 lines of actual logic. The rest is just delegating and syntactic sugar.
-
+The core functionality is only +-40 lines of code and +-11 lines of actual logic. The rest is just delegating and syntactic sugar.
  
 ## How do I use Glyph?
 There are only a couple of elements necessary for building an interactive tree of views.
