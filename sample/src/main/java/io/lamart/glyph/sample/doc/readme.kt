@@ -10,11 +10,9 @@ import android.widget.Toolbar
 import com.badoo.reaktive.subject.behavior.BehaviorSubject
 import com.badoo.reaktive.subject.behavior.behaviorSubject
 import io.lamart.glyph.*
-
+import io.lamart.glyph.sample.R
 
 data class State(val count: Int = 0)
-
-val subject = behaviorSubject(State())
 
 class Actions(val subject: BehaviorSubject<State>) {
 
@@ -46,7 +44,7 @@ fun counterGlyph(): SampleGlyph<Int> =
             .also(parent::addView)
         val countView: TextView = layout.findViewById(R.id.count)
         val plusView: TextView = layout.findViewById(R.id.plus)
-        val minusView: TextView = layout.findViewById(R.id.plus)
+        val minusView: TextView = layout.findViewById(R.id.minus)
 
         plusView.setOnClickListener { dependencies.increment() }
         minusView.setOnClickListener { dependencies.decrement() }
@@ -59,7 +57,7 @@ fun counterGlyph(): SampleGlyph<Int> =
     }
 
 fun rootGlyph(): SampleGlyph<State> =
-    { bind ->
+    {
         val layout = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.counter, parent, false)

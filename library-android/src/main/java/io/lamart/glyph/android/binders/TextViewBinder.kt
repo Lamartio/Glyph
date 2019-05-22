@@ -9,15 +9,15 @@ interface TextViewBinder<T> : ViewBinder<T> {
 
 }
 
-operator fun <T> Bind<T>.invoke(view: TextView): TextViewBinder<T> =
+operator fun <T> TextView.invoke(bind: Bind<T>): TextViewBinder<T> =
     object : TextViewBinder<T> {
 
-        override val bind: Bind<T> = this@invoke
-        override val owner: TextView = view
+        override val bind: Bind<T> = bind
+        override val owner: TextView = this@invoke
 
     }
 
-infix fun <T> TextViewBinder<T>.text(block: T.(state: T) -> CharSequence) =
+infix fun <T> TextViewBinder<T>.text(block: T.() -> CharSequence) =
     bind.invoke {
-        owner.text = block(it, it)
+        owner.text = block(it)
     }

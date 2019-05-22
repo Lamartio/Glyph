@@ -9,10 +9,10 @@ interface ButtonBinder<T> : TextViewBinder<T> {
 
 }
 
-operator fun <T> Bind<T>.invoke(view: Button): ButtonBinder<T> =
+operator fun <T> Button.invoke(bind: Bind<T>): ButtonBinder<T> =
     object : ButtonBinder<T> {
 
-        override val bind: Bind<T> = this@invoke
-        override val owner: Button = view
+        override val bind: Bind<T> = bind
+        override val owner: Button = this@invoke
 
     }

@@ -6,10 +6,10 @@ import io.lamart.glyph.Binder
 
 interface ViewBinder<T> : Binder<T, View>
 
-operator fun <T> Bind<T>.invoke(view: View): ViewBinder<T> =
+operator fun <T> View.invoke(bind: Bind<T>): ViewBinder<T> =
     object : ViewBinder<T> {
 
-        override val bind: Bind<T> = this@invoke
-        override val owner: View = view
+        override val bind: Bind<T> = bind
+        override val owner: View = this@invoke
 
     }
