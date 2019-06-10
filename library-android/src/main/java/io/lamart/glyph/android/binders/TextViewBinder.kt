@@ -17,7 +17,7 @@ operator fun <T> TextView.invoke(bind: Bind<T>): TextViewBinder<T> =
 
     }
 
-infix fun <T> TextViewBinder<T>.text(block: T.() -> CharSequence) =
+infix fun <T> TextViewBinder<T>.text(block: T.() -> CharSequence?) =
     bind.invoke {
         owner.text = block(it)
     }

@@ -4,22 +4,22 @@ import com.badoo.reaktive.disposable.CompositeDisposable
 import com.badoo.reaktive.observable.Observable
 import com.badoo.reaktive.observable.subscribe
 
-typealias Compose<T, R> = (Observable<T>) -> Observable<R>
+typealias Compose<I, O> = (input: Observable<I>) -> Observable<O>
 
-class Scope<D, P, I, O> private constructor(
+class Scope<D, P, I, O>(
     val dependencies: D,
     val parent: P,
     private val input: Observable<I>,
-    private val output: Observable<O>
+    private val compose: Compose<I, O>
 ) {
 
     operator fun P.unaryPlus() = withParent(this)
     operator fun plus(parent: P) = withParent(parent)
-    fun withParent(parent: P) = Scope(dependencies, parent, input, output)
+    fun withParent(parent: P) = Scope(dependencies, parent, input, compose)
 
-    operator fun <R> Compose<I, R>.unaryPlus() = withOutput(this)
-    operator fun <R> plus(compose: Compose<I, R>) = withOutput(compose)
-    fun <R> withOutput(compose: Compose<I, R>) = Scope(dependencies, parent, input, input.let(compose))
+    operator fun <R> Compose<I, R>.unaryPlus() = withCompose(this)
+    operator fun <R> plus(compose: Compose<I, R>) = withCompose(compose)
+    fun <R> withCompose(compose: Compose<I, R>) = Scope(dependencies, parent, input, compose)
 
     operator fun Glyph<D, P, I, O>.unaryPlus() = bind(this)
     operator fun plus(glyph: Glyph<D, P, I, O>) = bind(glyph)
@@ -28,7 +28,8 @@ class Scope<D, P, I, O> private constructor(
             .also { disposables ->
                 glyph
                     .invoke(this) { next ->
-                        output
+                        input
+                            .let(compose)
                             .subscribe(onNext = next)
                             .let(disposables::add)
                     }
@@ -37,8 +38,8 @@ class Scope<D, P, I, O> private constructor(
             }
             .toDispose()
 
-    fun <W, X, Y, Z> map(transform: (dependencies: D, parent: P, input: Observable<I>) -> Scope<W, X, Y, Z>) =
-        transform(dependencies, parent, input)
+    fun <D_, P_, I_, O_> map(transform: (dependencies: D, parent: P, input: Observable<I>, compose: Compose<I, O>) -> Scope<D_, P_, I_, O_>) =
+        transform(dependencies, parent, input, compose)
 
     companion object {
 
@@ -46,7 +47,7 @@ class Scope<D, P, I, O> private constructor(
             dependencies: D,
             parent: P,
             input: Observable<I>
-        ): Scope<D, P, I, I> = Scope(dependencies, parent, input, input)
+        ): Scope<D, P, I, I> = Scope(dependencies, parent, input, { it })
 
     }
 

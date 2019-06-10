@@ -1,4 +1,4 @@
-package io.lamart.glyph.sample.doc
+package io.lamart.glyph.docs
 
 import android.app.Activity
 import android.os.Bundle

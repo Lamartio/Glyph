@@ -1,4 +1,4 @@
-package io.lamart.glyph.sample
+package io.lamart.glyph.sample.basic
 
 import android.view.ViewGroup
 import com.badoo.reaktive.subject.behavior.BehaviorSubject
@@ -6,9 +6,9 @@ import io.lamart.glyph.Bind
 import io.lamart.glyph.Dispose
 import io.lamart.glyph.Glyph
 import io.lamart.glyph.Scope
-import io.lamart.glyph.sample.doc.Actions
-import io.lamart.glyph.sample.doc.SampleScope
-import io.lamart.glyph.sample.doc.State
+import io.lamart.glyph.docs.Actions
+import io.lamart.glyph.docs.SampleScope
+import io.lamart.glyph.docs.State
 
 
 typealias SampleScope<T> = Scope<Actions, ViewGroup, State, T>

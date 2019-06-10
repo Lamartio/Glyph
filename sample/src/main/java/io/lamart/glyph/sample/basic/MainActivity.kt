@@ -1,11 +1,13 @@
-package io.lamart.glyph.sample
+package io.lamart.glyph.sample.basic
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
-import android.view.*
+import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
-import io.lamart.glyph.*
-import io.lamart.glyph.sample.glyphs.mainGlyph
+import io.lamart.glyph.Dispose
+import io.lamart.glyph.Scope
+import io.lamart.glyph.sample.basic.glyphs.mainGlyph
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,12 +1,15 @@
-package io.lamart.glyph.sample.glyphs
+package io.lamart.glyph.sample.basic.glyphs
 
 import android.support.design.widget.FloatingActionButton
 import android.view.Gravity
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
 import io.lamart.glyph.dispose
-import io.lamart.glyph.sample.*
-import io.lamart.glyph.sample.doc.State
+import io.lamart.glyph.docs.State
+import io.lamart.glyph.sample.basic.SampleGlyph
+import io.lamart.glyph.sample.basic.actions
+import io.lamart.glyph.sample.basic.context
+import io.lamart.glyph.sample.basic.sampleGlyph
 
 fun incrementGlyph(): SampleGlyph<State> =
     sampleGlyph {
