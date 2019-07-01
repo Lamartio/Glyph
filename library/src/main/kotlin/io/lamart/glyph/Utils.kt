@@ -1,7 +1,7 @@
 package io.lamart.glyph
 
-import com.badoo.reaktive.observable.*
-import com.badoo.reaktive.subject.publish.publishSubject
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 
 fun <I, R> Scope<*, *, I, *>.state(transform: (state: I) -> R): Compose<I, R> =
     { input ->
@@ -20,7 +20,7 @@ fun <D, P, I, O, D_, I_> Scope<D, P, I, O>.localise(
     reduce: (subState: I_, supState: I) -> I_,
     lock: Any = Any()
 ): Scope<D_, P, I_, I_> = map { dependencies, parent, input, _ ->
-    val subject = publishSubject<I_>()
+    val subject = PublishSubject.create<I_>()
     var state: Any? = UnInitialized
     var localState: I_ = localState
     val input = input
@@ -32,7 +32,7 @@ fun <D, P, I, O, D_, I_> Scope<D, P, I, O>.localise(
                 }
             }
         }
-        .let { merge(it, subject) }
+        .let { Observable.merge(it, subject) }
     val dependencies = dependenciesOf(dependencies) { update ->
         synchronized(lock) { state }?.let { state ->
 

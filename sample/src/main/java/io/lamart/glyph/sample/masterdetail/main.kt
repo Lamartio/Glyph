@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import com.badoo.reaktive.subject.behavior.behaviorSubject
 import io.lamart.glyph.Dispose
 import io.lamart.glyph.Scope
+import io.reactivex.subjects.BehaviorSubject
 
 
 data class Person(val name: String, val age: Int)
@@ -22,7 +22,7 @@ interface Actions
 
 class MasterDetailActivity : AppCompatActivity() {
 
-    private val subject = behaviorSubject(State())
+    private val subject = BehaviorSubject.createDefault(State())
     private val actions = object : Actions {}
     private lateinit var dispose: Dispose
 

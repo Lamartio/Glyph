@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toolbar
-import com.badoo.reaktive.subject.behavior.BehaviorSubject
-import com.badoo.reaktive.subject.behavior.behaviorSubject
 import io.lamart.glyph.*
 import io.lamart.glyph.sample.R
+import io.reactivex.subjects.BehaviorSubject
 
 data class State(val count: Int = 0)
 
@@ -23,7 +22,7 @@ class Actions(val subject: BehaviorSubject<State>) {
         update { state -> state.copy(count = state.count - 1) }
 
     private fun update(block: (State) -> State) {
-        subject.value.let { value ->
+        subject.value?.let { value ->
             value
                 .let(block)
                 .takeIf { it != value }
@@ -80,7 +79,7 @@ class RootActivity: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view: ViewGroup = FrameLayout(this)
-        val subject = behaviorSubject(State())
+        val subject = BehaviorSubject.createDefault(State())
         val actions = Actions(subject)
         val scope = Scope(actions, view, subject)
 

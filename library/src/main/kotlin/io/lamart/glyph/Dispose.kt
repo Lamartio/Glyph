@@ -1,7 +1,7 @@
 package io.lamart.glyph
 
-import com.badoo.reaktive.disposable.Disposable
-import com.badoo.reaktive.disposable.DisposableWrapper
+import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.Disposables
 
 typealias Dispose = () -> Unit
 
@@ -14,16 +14,4 @@ fun dispose(values: Sequence<Dispose>): Dispose = values.reduce { l, r -> { l();
 fun Disposable.toDispose(): Dispose = ::dispose
 
 internal fun disposableOf(dispose: Dispose): Disposable =
-    DisposableWrapper().also { disposable ->
-        disposable.set(object : Disposable {
-
-            override val isDisposed: Boolean
-                get() = disposable.isDisposed
-
-            override fun dispose() {
-                disposable.dispose()
-                dispose.invoke()
-            }
-
-        })
-    }
+    Disposables.fromAction(dispose)

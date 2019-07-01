@@ -1,6 +1,5 @@
 package io.lamart.glyph.sample.basic.glyphs
 
-import android.R
 import android.os.Build
 import android.view.Gravity
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ fun counterGlyph() = sampleGlyph<Int> { bind ->
         .apply {
             layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
                 gravity = Gravity.CENTER
-                appearance = R.style.TextAppearance_DeviceDefault_Large
+                appearance = android.R.style.TextAppearance_DeviceDefault_Large
             }
         }
         .also(parent::addView)

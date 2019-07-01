@@ -1,7 +1,6 @@
 package io.lamart.glyph.sample.basic
 
 import android.view.ViewGroup
-import com.badoo.reaktive.subject.behavior.BehaviorSubject
 import io.lamart.glyph.Bind
 import io.lamart.glyph.Dispose
 import io.lamart.glyph.Glyph
@@ -9,6 +8,7 @@ import io.lamart.glyph.Scope
 import io.lamart.glyph.docs.Actions
 import io.lamart.glyph.docs.SampleScope
 import io.lamart.glyph.docs.State
+import io.reactivex.subjects.BehaviorSubject
 
 
 typealias SampleScope<T> = Scope<Actions, ViewGroup, State, T>
@@ -33,11 +33,12 @@ class Actions(private val subject: BehaviorSubject<State>) {
         update { state -> state.copy(count = state.count - 1) }
 
     private fun update(block: (state: State) -> State) {
-        val previous = subject.value
-        val next = previous.run(block)
-
-        if (previous != next)
-            subject.onNext(next)
+        subject.value?.let { previous ->
+            previous
+                .let(block)
+                .takeIf { it != previous }
+                ?.let(subject::onNext)
+        }
     }
 
 }

@@ -1,13 +1,13 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm'
-}
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'com.novoda.bintray-release'
 
 group 'io.lamart.glyph'
-version '0.9.0'
+version '0.9.4'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    api "com.github.badoo.reaktive:reaktive-jvm:$reaktive_version"
+    api 'io.reactivex.rxjava2:rxjava:2.2.10'
+    api 'io.reactivex.rxjava2:rxkotlin:2.3.0'
 }
 
 compileKotlin {
@@ -15,4 +15,26 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+def properties = project.rootProject.file('local.properties').withDataInputStream { stream ->
+    def props = new Properties()
+    props.load(stream)
+    props
+}
+
+publish {
+    userOrg 'lamartio'
+    groupId project.group
+    artifactId 'core'
+    publishVersion project.version
+    uploadName 'Glyph-Android'
+    desc 'Functional presentation layer architecture.'
+    website 'https://github.com/Lamartio/Glyph'
+
+    bintrayUser properties['BINTRAY_USER']
+    bintrayKey properties['BINTRAY_KEY']
+
+    dryRun false
+    override true
 }
