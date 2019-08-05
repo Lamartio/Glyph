@@ -16,7 +16,7 @@ publish {
     userOrg 'lamartio'
     groupId 'io.lamart.glyph'
     artifactId 'glyph'
-    publishVersion '0.9.8'
+    publishVersion '1.0.0'
     uploadName 'Glyph-Android'
     desc 'Functional presentation layer architecture.'
     website 'https://github.com/Lamartio/Glyph'
