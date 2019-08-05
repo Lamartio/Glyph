@@ -24,7 +24,7 @@ fun <I> personsGlyph(): Glyph<MainActions, ViewGroup, I, List<String>> = { bind 
             val itemView = inflater.inflate(listItem, parent, false) as TextView
 
             itemView.text = name
-            itemView.setOnClickListener { dependencies.select(name) }
+            itemView.setOnClickListener { actions.select(name) }
             view.addView(itemView)
         }
     }

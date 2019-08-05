@@ -1,9 +1,6 @@
 apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'com.novoda.bintray-release'
 
-group 'io.lamart.glyph'
-version '0.9.8'
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     api 'io.reactivex.rxjava2:rxjava:2.2.10'
@@ -17,9 +14,9 @@ def properties = project.rootProject.file('local.properties').withDataInputStrea
 
 publish {
     userOrg 'lamartio'
-    groupId project.group
-    artifactId 'core'
-    publishVersion project.version
+    groupId 'io.lamart.glyph'
+    artifactId 'glyph'
+    publishVersion '0.9.8'
     uploadName 'Glyph-Android'
     desc 'Functional presentation layer architecture.'
     website 'https://github.com/Lamartio/Glyph'

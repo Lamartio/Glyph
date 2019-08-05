@@ -21,7 +21,7 @@ androidExtensions {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    api project(':library')
+    implementation project(':library')
 }
 
 def properties = project.rootProject.file('local.properties').withDataInputStream { stream ->

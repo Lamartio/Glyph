@@ -10,14 +10,10 @@ import io.lamart.glyph.docs.SampleScope
 import io.lamart.glyph.docs.State
 import io.reactivex.subjects.BehaviorSubject
 
-
 typealias SampleScope<T> = Scope<Actions, ViewGroup, State, T>
 typealias SampleGlyph<T> = Glyph<Actions, ViewGroup, State, T>
 
 fun <T> sampleGlyph(block: SampleScope<T>.(bind: Bind<T>) -> Dispose): SampleGlyph<T> = block
-
-val SampleScope<*>.actions
-    get() = dependencies
 
 val SampleScope<*>.context
     get() = parent.context

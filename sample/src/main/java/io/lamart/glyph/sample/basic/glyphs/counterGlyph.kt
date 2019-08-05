@@ -3,6 +3,7 @@ package io.lamart.glyph.sample.basic.glyphs
 import android.os.Build
 import android.view.Gravity
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.TextView
 import io.lamart.glyph.dispose
@@ -12,7 +13,7 @@ import io.lamart.glyph.sample.basic.sampleGlyph
 fun counterGlyph() = sampleGlyph<Int> { bind ->
     val view = TextView(context)
         .apply {
-            layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+            layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
                 gravity = Gravity.CENTER
                 appearance = android.R.style.TextAppearance_DeviceDefault_Large
             }

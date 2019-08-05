@@ -14,12 +14,12 @@ typealias Update<I, O> = ((localState: O, state: I) -> O) -> Unit
 
 private object UnInitialized
 
-fun <D, P, I, O, D_, I_> Scope<D, P, I, O>.localise(
+fun <A, P, I, O, A_, I_> Scope<A, P, I, O>.localise(
     localState: I_,
-    dependenciesOf: (dependencies: D, update: Update<I, I_>) -> D_,
+    actionsOf: (actions: A, update: Update<I, I_>) -> A_,
     reduce: (subState: I_, supState: I) -> I_,
     lock: Any = Any()
-): Scope<D_, P, I_, I_> = map { dependencies, parent, input, _ ->
+): Scope<A_, P, I_, I_> = map { actions, parent, input, _ ->
     val subject = PublishSubject.create<I_>()
     var state: Any? = UnInitialized
     var localState: I_ = localState
@@ -33,7 +33,7 @@ fun <D, P, I, O, D_, I_> Scope<D, P, I, O>.localise(
             }
         }
         .let { Observable.merge(it, subject) }
-    val dependencies = dependenciesOf(dependencies) { update ->
+    val actions = actionsOf(actions) { update ->
         synchronized(lock) { state }?.let { state ->
 
             @Suppress("UNCHECKED_CAST")
@@ -48,5 +48,5 @@ fun <D, P, I, O, D_, I_> Scope<D, P, I, O>.localise(
         }
     }
 
-    Scope(dependencies, parent, input)
+    Scope(actions, parent, input)
 }

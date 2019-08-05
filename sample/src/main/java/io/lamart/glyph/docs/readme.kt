@@ -45,8 +45,8 @@ fun counterGlyph(): SampleGlyph<Int> =
         val plusView: TextView = layout.findViewById(R.id.plus)
         val minusView: TextView = layout.findViewById(R.id.minus)
 
-        plusView.setOnClickListener { dependencies.increment() }
-        minusView.setOnClickListener { dependencies.decrement() }
+        plusView.setOnClickListener { actions.increment() }
+        minusView.setOnClickListener { actions.decrement() }
 
         bind { count: Int ->
             countView.text = count.toString()

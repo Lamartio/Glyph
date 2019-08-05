@@ -13,12 +13,12 @@ There are only a couple of elements necessary for building an interactive tree o
 
 These elements are bundled in an object called `Scope`. When you check the `Scope` signature you will see it receives 4 type parameters. Lets go over them one by one:
 
-- **D**ependencies: As desribed above, these are mostly the actions you need trigger when the user clicks or swipes
+- **A**ctions: As desribed above, these are mostly the actions you need trigger when the user clicks or swipes
 - **P**arent: For Android this is usually a ViewGroup since it can add and remove child views.
 - **I**nput: The state that is used in your whole presentation layer.
 - **O**utput: The state that is used to render a specific part of the view tree. Traditionally this is the state of your `Fragment` or `UIViewController`. This parameter becomes important when your application grows, but initially you don't need to use it.
 
-When you start a new application you will define your presentation state and your dependencies. If you have an existent app or a boilerplate project, you can use your `Dagger`'s AppComponent as your dependencies. For simplicity the below examples use a class called `Actions`. 
+When you start a new application you will define your presentation state and your actions. If you have an existent app or a boilerplate project, you can use your `Dagger`'s AppComponent as your actions. For simplicity the below examples use a class called `Actions`. 
 
 ```kotlin
 data class State(val count: Int = 0)
@@ -47,7 +47,7 @@ typealias SampleScope<O> = Scope<Actions, ViewGroup, State, O>
 ```
 The `Scope` is used to provision `Glyph` functions and those 'glyphs' are the functional replacement for our traditional `Fragment` or `UIViewController`. So next step is to check the `Glyph` signature:
 ```kotlin
-typealias Glyph<D, P, I, O> = Scope<D, P, I, O>.(bind: Bind<O>) -> Dispose
+typealias Glyph<A, P, I, O> = Scope<A, P, I, O>.(bind: Bind<O>) -> Dispose
 ```
 It is a quiet complex function definition, so lets break it down:
 - The previously described Scope will function as `this` within the function.
@@ -76,8 +76,8 @@ fun counterGlyph(): SampleGlyph<Int> =
         val plusView: TextView = layout.findViewById(R.id.plus)
         val minusView: TextView = layout.findViewById(R.id.minus)
 
-        plusView.setOnClickListener { dependencies.increment() }
-        minusView.setOnClickListener { dependencies.decrement() }
+        plusView.setOnClickListener { actions.increment() }
+        minusView.setOnClickListener { actions.decrement() }
 
         bind { count: Int ->
             countView.text = count.toString()
@@ -179,6 +179,6 @@ You may obtain a copy of the License at
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KINA, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
