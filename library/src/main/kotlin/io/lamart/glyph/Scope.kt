@@ -29,7 +29,7 @@ class Scope<A, P, I, O>(
                             .subscribe(next)
                             .let(disposables::add)
                     }
-                    .let(::disposableOf)
+                    .toDisposable()
                     .let(disposables::add)
             }
             .toDispose()

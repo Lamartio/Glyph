@@ -1,1 +1,1 @@
-include ':library', ':library-android', ':sample'
+include ':library', ':library-android', ':sample', ':library-android-recyclerview'

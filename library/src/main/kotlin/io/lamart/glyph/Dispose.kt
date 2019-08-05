@@ -13,5 +13,6 @@ fun dispose(values: Sequence<Dispose>): Dispose = values.reduce { l, r -> { l();
 
 fun Disposable.toDispose(): Dispose = ::dispose
 
-internal fun disposableOf(dispose: Dispose): Disposable =
-    Disposables.fromAction(dispose)
+internal fun Dispose.toDisposable() : Disposable = Disposables.fromAction(dispose)
+
+fun Collection<Dispose>.dispose() = forEach { dispose -> dispose() }
