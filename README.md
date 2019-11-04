@@ -13,8 +13,8 @@ There are only a couple of elements necessary for building an interactive tree o
 
 These elements are bundled in an object called `GlyphScope`. When you check the `GlyphScope` signature you will see it receives 4 type parameters. Lets go over them one by one:
 
-- **A**ctions: As desribed above, these are mostly the actions you need trigger when the user clicks or swipes
 - **P**arent: For Android this is usually a ViewGroup since it can add and remove child views.
+- **A**ctions: As desribed above, these are mostly the actions you need trigger when the user clicks or swipes
 - **I**nput: The state that is used in your whole presentation layer.
 - **O**utput: The state that is used to render a specific part of the view tree. Traditionally this is the state of your `Fragment` or `UIViewController`. This parameter becomes important when your application grows, but initially you don't need to use it.
 
@@ -48,7 +48,7 @@ typealias SampleGlyphScope<O> = GlyphScope<ViewGroup, Actions, State, O>
 ```
 The `GlyphScope` is used to provision `Glyph` functions and those 'glyphs' are the functional replacement for our traditional `Fragment` or `UIViewController`. So next step is to check the `Glyph` signature:
 ```kotlin
-typealias Glyph<P, A, I, O> = Scope<P, A, I, O>.(bind: Bind<O>) -> Dispose
+typealias Glyph<P, A, I, O> = GlyphScope<P, A, I, O>.(bind: Bind<O>) -> Dispose
 ```
 It is a quiet complex function definition, so lets break it down:
 - The previously described Scope will function as `this` within the function.
