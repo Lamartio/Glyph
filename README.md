@@ -133,16 +133,16 @@ val disposeCounter: Dispose = countScope + counterGlyph()
 
 Dependent on which platform we're developing we need to initialize a `GlyphScope` that can trigger the initial `Glyph`. As of now only Android is supported so lets create an Activity:
 ```kotlin
-class RootActivity : Activity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var disposeRoot: Dispose
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view: ViewGroup = FrameLayout(this)
-        val subject = ConflatedBroadcastChannel(State())
-        val actions = Actions(subject)
-        val scope = GlyphScope(MainScope(), view, actions, subject.asFlow())
+        val channel = ConflatedBroadcastChannel(State())
+        val actions = Actions(channel)
+        val scope = GlyphScope(MainScope(), view, actions, channel.asFlow())
 
         disposeRoot = scope + rootGlyph()
         setContentView(view)

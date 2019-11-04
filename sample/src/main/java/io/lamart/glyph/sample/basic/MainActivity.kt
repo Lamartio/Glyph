@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view: ViewGroup = FrameLayout(this)
-        val subject = ConflatedBroadcastChannel(State())
-        val actions = Actions(subject)
-        val scope = GlyphScope(MainScope(), view, actions, subject.asFlow())
+        val channel = ConflatedBroadcastChannel(State())
+        val actions = Actions(channel)
+        val scope = GlyphScope(MainScope(), view, actions, channel.asFlow())
 
         disposeRoot = scope + rootGlyph()
         setContentView(view)
