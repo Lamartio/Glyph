@@ -2,14 +2,14 @@
 # Glyph
 In web development it is common to create a single object that describes the state of the UI. Every time that state changes, the UI gets updated accordingly. Glyph is using the same principle and wraps it is a simple function which is called... A Glyph!
 ``` Gradle
-implementation "io.lamart.glyph:glyph:2.0.0"
+implementation "io.lamart.glyph:glyph:+"
 ```
 
 ## How do I use Glyph?
 There are only a couple of elements necessary for building an interactive tree of views.
 - **A parent view** for adding child views
 - **A state** that is used for rendering the views
-- **Dependencies** that mostly contain actions for triggering state changes
+- **Actions** that trigger state changes
 
 These elements are bundled in an object called `GlyphScope`. When you check the `GlyphScope` signature you will see it receives 4 type parameters. Lets go over them one by one:
 
@@ -42,7 +42,7 @@ class Actions(private val channel: ConflatedBroadcastChannel<State>) {
 
 }
 ```
-With the definition of `State` and `Dependencies` we can fulfill the type parameters of a `GlyphScope` object. Lets fill them in a `typealias` to make the usage simpler. Notice that the `Output` parameter still stays variable. That will come to use later, but for now you can read it as `State`.
+With the definition of `State` and `Actions` we can fulfill the type parameters of a `GlyphScope` object. Lets fill them in a `typealias` to make the usage simpler. Notice that the `Output` parameter still stays variable. That will come to use later, but for now you can read it as `State`.
 ```kotlin
 typealias SampleGlyphScope<O> = GlyphScope<ViewGroup, Actions, State, O>
 ```

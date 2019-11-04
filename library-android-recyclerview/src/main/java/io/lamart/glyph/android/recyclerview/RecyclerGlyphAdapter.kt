@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.lamart.glyph.Compose
 import io.lamart.glyph.Dispose
-import io.lamart.glyph.GlyphScopeInstance
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
+import io.lamart.glyph.GlyphScope
 
 
 abstract class RecyclerGlyphAdapter<D, I, O>(
