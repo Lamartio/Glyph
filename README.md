@@ -11,7 +11,7 @@ There are only a couple of elements necessary for building an interactive tree o
 - **A state** that is used for rendering the views
 - **Dependencies** that mostly contain actions for triggering state changes
 
-These elements are bundled in an object called `Scope`. When you check the `Scope` signature you will see it receives 4 type parameters. Lets go over them one by one:
+These elements are bundled in an object called `GlyphScope`. When you check the `GlyphScope` signature you will see it receives 4 type parameters. Lets go over them one by one:
 
 - **A**ctions: As desribed above, these are mostly the actions you need trigger when the user clicks or swipes
 - **P**arent: For Android this is usually a ViewGroup since it can add and remove child views.
@@ -23,7 +23,7 @@ When you start a new application you will define your presentation state and you
 ```kotlin
 data class State(val count: Int = 0)
 
-class Actions(val subject: BehaviorSubject<State>) {
+class Actions(private val channel: ConflatedBroadcastChannel<State>) {
 
     fun increment() =
         update { state -> state.copy(count = state.count + 1) }
@@ -32,22 +32,23 @@ class Actions(val subject: BehaviorSubject<State>) {
         update { state -> state.copy(count = state.count - 1) }
 
     private fun update(block: (State) -> State) {
-        subject.value.let { value ->
+        channel.value.let { value ->
             value
                 .let(block)
                 .takeIf { it != value }
-                ?.let(subject::onNext)
+                ?.let { channel.offer(it) }
         }
     }
+
 }
 ```
-With the definition of `State` and `Dependencies` we can fulfill the type parameters of a `Scope` object. Lets fill them in a `typealias` to make the usage simpler. Notice that the `Output` parameter still stays variable. That will come to use later, but for now you can read it as `State`.
+With the definition of `State` and `Dependencies` we can fulfill the type parameters of a `GlyphScope` object. Lets fill them in a `typealias` to make the usage simpler. Notice that the `Output` parameter still stays variable. That will come to use later, but for now you can read it as `State`.
 ```kotlin
-typealias SampleScope<O> = Scope<Actions, ViewGroup, State, O>
+typealias SampleGlyphScope<O> = GlyphScope<ViewGroup, Actions, State, O>
 ```
-The `Scope` is used to provision `Glyph` functions and those 'glyphs' are the functional replacement for our traditional `Fragment` or `UIViewController`. So next step is to check the `Glyph` signature:
+The `GlyphScope` is used to provision `Glyph` functions and those 'glyphs' are the functional replacement for our traditional `Fragment` or `UIViewController`. So next step is to check the `Glyph` signature:
 ```kotlin
-typealias Glyph<A, P, I, O> = Scope<A, P, I, O>.(bind: Bind<O>) -> Dispose
+typealias Glyph<P, A, I, O> = Scope<P, A, I, O>.(bind: Bind<O>) -> Dispose
 ```
 It is a quiet complex function definition, so lets break it down:
 - The previously described Scope will function as `this` within the function.
@@ -56,7 +57,7 @@ It is a quiet complex function definition, so lets break it down:
 
 Again the syntax of a `Glyph` is quiet complex, but we can fill in the type parameters to make it simpler:
 ```kotlin
-typealias SampleGlyph<O> = Glyph<Actions, ViewGroup, State, O>
+typealias SampleGlyph<O> = Glyph<ViewGroup, Actions, State, O>
 ```
 Now all the preparation is done and we are ready to create user interface. Each `Glyph` represent a part of the view tree and has 4 responsibilities:
 1. Creating the Views
@@ -67,7 +68,7 @@ Now all the preparation is done and we are ready to create user interface. Each 
 Lets create a `Glyph` that renders the `State.count` and has two buttons that trigger `Actions.increment` and `Actions.decrement` respectively.
 ```kotlin
 fun counterGlyph(): SampleGlyph<Int> =
-    { bind : Bind<Int> ->
+    { bind: Bind<Int> ->
         val layout = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.counter, parent, false)
@@ -83,7 +84,7 @@ fun counterGlyph(): SampleGlyph<Int> =
             countView.text = count.toString()
         }
 
-        dispose { parent.removeView(layout) }
+        disposeOf { parent.removeView(layout) }
     }
 ```
 On the first line we define a `SampleGlyph` that will render an `Int` that is part of `State.count`.
@@ -94,22 +95,26 @@ On the last line we give instruction of how to get rid of the part of the UI. Th
 
 There is one problem left: The `counterGlyph` receives an `Int` but our application is based on `State`. To fix this, we need the map `State` to `State.count`. The mapping happens within a glyph so lets create our initial Glyph:
 ```kotlin
-fun rootGlyph(): SampleGlyph<State> =
-    { bind ->
+fun counterGlyph(): SampleGlyph<Int> =
+    { bind: Bind<Int> ->
         val layout = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.counter, parent, false)
+            .inflate(io.lamart.glyph.sample.R.layout.counter, parent, false)
             .also(parent::addView)
-        val toolBar: Toolbar = layout.findViewById(R.id.toolBar)
-        val content: ViewGroup = layout.findViewById(R.id.content)
+        val countView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.count)
+        val plusView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.plus)
+        val minusView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.minus)
 
-        val disposeCounter: Dispose = +content + state { it.count } + counterGlyph()
+        plusView.setOnClickListener { actions.increment() }
+        minusView.setOnClickListener { actions.decrement() }
 
-        dispose(
-            disposeCounter,
-            { parent.removeView(layout) }
-        )
+        bind { count: Int ->
+            countView.text = count.toString()
+        }
+
+        disposeOf { parent.removeView(layout) }
     }
+
 ```
 The first lines are like the `counterGlyph()`: It adds a views to the parent and caches the crucial views. The end is also as we expect: It creates a function that undoes what we did before.
 
@@ -117,27 +122,27 @@ But something weird is happening at the line of `disposeCounter`. We use math an
 
 The goal is to add the `counterGlyph()` to the `rootGlyph()`. Add and plus are almost the same thing and Kotlin allows to replace `.plus()` with a `+`. That explains the last `+`, but that leaves us with two more `+`:  
 1. **+content**: Will replace the current parent with `content`, so now the `counterGlyph` will be added to `content`
-1. **+state { it.count }**: Will map the `State` to `State.count`. As a result the `Scope` will look like `SampleScope<Int>` which is matching the signature of the `rootGlyph()`.
+1. **+state { it.count }**: Will map the `State` to `State.count`. As a result the `GlyphScope` will look like `SampleScope<Int>` which is matching the signature of the `rootGlyph()`.
 
-The trick is that the first two `+` will create new `Scope` objects. So if we write it verbose it would be:
+The trick is that the first two `+` will create new `GlyphScope` objects. So if we write it verbose it would be:
 ```kotlin
-val contentScope: SampleScope<State> = this + content
-val countScope: SampleScope<Int> = contentScope + state { it.count }
+val contentScope: SampleGlyphScope<State> = this + content
+val countScope: SampleGlyphScope<Int> = contentScope + state { it.count }
 val disposeCounter: Dispose = countScope + counterGlyph()
 ```
 
-Dependent on which platform we're developing we need to initialize a `Scope` that can trigger the initial `Glyph`. As of now only Android is supported so lets create an Activity:
+Dependent on which platform we're developing we need to initialize a `GlyphScope` that can trigger the initial `Glyph`. As of now only Android is supported so lets create an Activity:
 ```kotlin
-class RootActivity: Activity() {
+class RootActivity : Activity() {
 
     lateinit var disposeRoot: Dispose
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view: ViewGroup = FrameLayout(this)
-        val subject = behaviorSubject(State())
+        val subject = ConflatedBroadcastChannel(State())
         val actions = Actions(subject)
-        val scope = Scope(actions, view, subject)
+        val scope = GlyphScope(MainScope(), view, actions, subject.asFlow())
 
         disposeRoot = scope + rootGlyph()
         setContentView(view)
@@ -152,18 +157,7 @@ class RootActivity: Activity() {
 ```
 In the `onDestroy` we call the function that holds the logic for removing the `rootGlyph`, which hold the logic for removing the `counterGlyph`.
 
-The `BehaviorSubject` is coming form [RxKotlin](https://github.com/badoo/reaktive), which is a Kotlin MultiPlatform implementation of [Rx](http://reactivex.io/). It is in alpha phase, but the functionality we need is stable. You might have noticed that the snippets above do not use Rx and technically the library can function without it. Though when your project becomes more complex, Rx becomes a necessity. Please see the 'Advanced' section of this readme.
-
 All of the above code is available in the sample project included in this repo.
-
-## Advanced
-Once you tried building some glyphs yourself, you are ready to tackle some more complex scenarios:
-- Mapping and merging to a different `Scope` --> TBA
-- Customize outputs with `Compose` --> TBA
-- Some useful extension functions --> TBA
-- Understanding the dispose wrapper --> TBA
-- Bindings --> TBA
-- Bisecting `Dispose` --> TBA
 
 # So why is it called Glyph?
 The goal of Glyph is to realize simple view tree management for the major platforms: Android, iOS and the web browsers. In those paradigms there are already a lot of words describing compositions: Module, Component, Branch, Element, Node etc.. It is important that it should not conflict on any platform and it is favourable to have a short and simple name. Therefore I chose Glyph.

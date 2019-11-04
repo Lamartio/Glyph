@@ -1,39 +1,27 @@
 package io.lamart.glyph.sample.basic.glyphs
 
-import android.os.Build
-import android.view.Gravity
-import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.view.LayoutInflater
 import android.widget.TextView
-import io.lamart.glyph.dispose
-import io.lamart.glyph.sample.basic.context
-import io.lamart.glyph.sample.basic.sampleGlyph
+import io.lamart.glyph.Bind
+import io.lamart.glyph.disposeOf
+import io.lamart.glyph.sample.basic.SampleGlyph
 
-fun counterGlyph() = sampleGlyph<Int> { bind ->
-    val view = TextView(context)
-        .apply {
-            layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
-                gravity = Gravity.CENTER
-                appearance = android.R.style.TextAppearance_DeviceDefault_Large
-            }
+fun counterGlyph(): SampleGlyph<Int> =
+    { bind: Bind<Int> ->
+        val layout = LayoutInflater
+            .from(parent.context)
+            .inflate(io.lamart.glyph.sample.R.layout.counter, parent, false)
+            .also(parent::addView)
+        val countView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.count)
+        val plusView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.plus)
+        val minusView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.minus)
+
+        plusView.setOnClickListener { actions.increment() }
+        minusView.setOnClickListener { actions.decrement() }
+
+        bind { count: Int ->
+            countView.text = count.toString()
         }
-        .also(parent::addView)
 
-    bind { count ->
-        view.text = count.toString()
+        disposeOf { parent.removeView(layout) }
     }
-
-    dispose { parent.removeView(view) }
-}
-
-
-private var TextView.appearance: Int
-    get() = throw UnsupportedOperationException()
-    set(value) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            setTextAppearance(context, value)
-        else
-            setTextAppearance(value)
-    }
-

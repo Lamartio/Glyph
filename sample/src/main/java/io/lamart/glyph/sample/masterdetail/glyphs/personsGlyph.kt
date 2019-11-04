@@ -1,15 +1,17 @@
-package io.lamart.glyph.sample.masterdetail
+package io.lamart.glyph.sample.masterdetail.glyphs
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import io.lamart.glyph.Glyph
-import io.lamart.glyph.dispose
+import io.lamart.glyph.disposeOf
+import io.lamart.glyph.sample.masterdetail.Actions
+import io.lamart.glyph.sample.masterdetail.State
 
 private const val listItem = android.R.layout.simple_list_item_1
 
-fun <I> personsGlyph(): Glyph<MainActions, ViewGroup, I, List<String>> = { bind ->
+fun personsGlyph(): Glyph<ViewGroup, Actions, State, List<String>> = { bind ->
     val inflater = LayoutInflater.from(parent.context)
     val view = LinearLayout(parent.context)
         .also(parent::addView)
@@ -29,5 +31,5 @@ fun <I> personsGlyph(): Glyph<MainActions, ViewGroup, I, List<String>> = { bind 
         }
     }
 
-    dispose { parent.removeView(view) }
+    disposeOf { parent.removeView(view) }
 }

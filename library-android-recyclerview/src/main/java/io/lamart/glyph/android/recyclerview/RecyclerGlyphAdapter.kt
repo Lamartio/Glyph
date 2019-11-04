@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.lamart.glyph.Compose
 import io.lamart.glyph.Dispose
-import io.lamart.glyph.Scope
+import io.lamart.glyph.GlyphScopeInstance
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
@@ -37,13 +37,13 @@ abstract class RecyclerGlyphAdapter<D, I, O>(
     class ViewHolder<O> internal constructor(view: View, val bind: (O) -> Unit) : RecyclerView.ViewHolder(view)
 
     abstract class SimpleInstance<D, I, O>(
-        private val scope: Scope<D, ViewGroup, I, List<O>>,
+        private val scope: GlyphScopeInstance<D, ViewGroup, I, List<O>>,
         override val list: DiffList<O> = DiffList(),
         disposes: MutableList<Dispose> = mutableListOf()
     ) : RecyclerGlyphAdapter<D, I, O>(disposes), DiffListAdapter<O> {
 
-        override fun onCreateScope(parent: ViewGroup, compose: Compose<I, O>): Scope<D, ViewGroup, I, O> =
-            Scope(scope.actions, parent, Observable.empty(), compose)
+        override fun onCreateScope(parent: ViewGroup, compose: Compose<I, O>): GlyphScopeInstance<D, ViewGroup, I, O> =
+            GlyphScopeInstance(scope.actions, parent, Observable.empty(), compose)
 
         override fun getItemCount(): Int = list.size
 

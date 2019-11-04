@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
     <TextView
             android:id="@+id/count"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
     <Button
             android:id="@+id/plus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_width="180dip"
+            android:layout_height="wrap_content"
+            android:text="+" />
+
     <Button
             android:id="@+id/minus"
-            android:text="-"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_width="180dip"
+            android:layout_height="wrap_content"
+            android:text="-" />
 </LinearLayout>
