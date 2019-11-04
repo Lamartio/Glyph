@@ -2,7 +2,7 @@
 # Glyph
 In web development it is common to create a single object that describes the state of the UI. Every time that state changes, the UI gets updated accordingly. Glyph is using the same principle and wraps it is a simple function which is called... A Glyph!
 ``` Gradle
-implementation "io.lamart.glyph:core-android:+"
+implementation "io.lamart.glyph:glyph:2.0.0"
 ```
 
 ## How do I use Glyph?
