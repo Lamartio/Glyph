@@ -1,1 +1,1 @@
-include ':library', ':sample', ':library-android-recyclerview', ':library-android-viewpager'
+include ':library', ':sample', ':library-android-recyclerview'
