@@ -17,7 +17,7 @@ fun mainGlyph(): Glyph<ViewGroup, Actions, State, State> = {
     val masterView = view.findViewById<ViewGroup>(R.id.master)
     val detailView = view.findViewById<ViewGroup>(R.id.detail)
 
-    +masterView + output { it.persons.map { person -> person.name } } + personsGlyph()
+    +masterView + output { it.persons } + personsGlyph()
     +detailView + output { it.selectedPerson } + personGlyph()
 
     disposeOf { parent.removeView(view) }

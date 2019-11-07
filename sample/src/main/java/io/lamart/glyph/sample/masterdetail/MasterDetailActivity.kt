@@ -1,9 +1,9 @@
 package io.lamart.glyph.sample.masterdetail
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.appcompat.app.AppCompatActivity
 import io.lamart.glyph.Dispose
 import io.lamart.glyph.GlyphScope
 import io.lamart.glyph.invoke

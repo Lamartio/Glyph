@@ -22,7 +22,7 @@ fun <P, A, I, O> GlyphScope<P, A, I, O>.glyphOf(glyph: Glyph<P, A, I, I>): Glyph
     glyphOf(transform = { it }, glyph = glyph)
 
 @JvmName("glyphOfTransform")
-fun <P, A, I, O, R> GlyphScope<P, A, I, O>.glyphOf(transform: (I) -> R, glyph: Glyph<P, A, I, R>): Glyph<P, A, I, O> =
+fun <P, A, I, O, R> GlyphScope<P, A, I, O>.glyphOf(transform: suspend (I) -> R, glyph: Glyph<P, A, I, R>): Glyph<P, A, I, O> =
     glyphOf(compose = output(transform), glyph = glyph)
 
 @JvmName("glyphOfCompose")

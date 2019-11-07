@@ -11,7 +11,9 @@ import io.lamart.glyph.sample.masterdetail.State
 fun personGlyph(): Glyph<ViewGroup, Actions, State, Person?> = { bind ->
     val view = TextView(parent.context).also(parent::addView)
 
-    bind { view.text = it?.name }
+    bind {
+        view.text = it?.name
+    }
 
     disposeOf { parent.removeView(view) }
 }

@@ -2,12 +2,13 @@ package io.lamart.glyph
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class GlyphScope<P, A, I, O>(
-    private val scope: CoroutineScope,
+    private val scope: CoroutineScope = MainScope(),
     val parent: P,
     val actions: A,
     private val input: Flow<I>,
@@ -48,7 +49,7 @@ class GlyphScope<P, A, I, O>(
 private fun Job.toDispose() = disposeOf { cancel() }
 
 operator fun <P, A, I> GlyphScope.Companion.invoke(
-    scope: CoroutineScope,
+    scope: CoroutineScope = MainScope(),
     parent: P,
     actions: A,
     input: Flow<I>
