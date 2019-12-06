@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.Toolbar
 import io.lamart.glyph.Dispose
 import io.lamart.glyph.disposeOf
-import io.lamart.glyph.output
+import io.lamart.glyph.outputOf
 import io.lamart.glyph.sample.R
 import io.lamart.glyph.sample.basic.SampleGlyph
 import io.lamart.glyph.sample.basic.State
@@ -19,7 +19,7 @@ fun rootGlyph(): SampleGlyph<State> =
         val toolBar: Toolbar = layout.findViewById(R.id.toolBar)
         val content: ViewGroup = layout.findViewById(R.id.content)
 
-        val disposeCounter: Dispose = +content + output { it.count } + counterGlyph()
+        val disposeCounter: Dispose = +content + outputOf { it.count } + counterGlyph()
 
         disposeOf(
             disposeCounter,

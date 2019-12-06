@@ -1,56 +1,56 @@
 package io.lamart.glyph
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
-class GlyphScope<P, A, I, O>(
-    private val scope: CoroutineScope = MainScope(),
+class GlyphScope<P, R, I, O>(
     val parent: P,
-    val actions: A,
+    val resources: R,
     private val input: Flow<I>,
-    private val output: Flow<O>
+    private val output: Flow<O>,
+    private val context: CoroutineContext = Dispatchers.Main
 ) {
 
-    operator fun <R> R.unaryPlus(): GlyphScope<R, A, I, O> = plus(this)
-    operator fun <R> plus(parent: R): GlyphScope<R, A, I, O> =
-        GlyphScope(scope, parent, actions, input, output)
+    operator fun P.unaryPlus(): GlyphScope<P, R, I, O> = plus(this)
+    operator fun plus(parent: P): GlyphScope<P, R, I, O> =
+        GlyphScope(parent, resources, input, output, context)
 
-    operator fun <R> Compose<I, R>.unaryPlus(): GlyphScope<P, A, I, R> = plus(this)
-    operator fun <R> plus(compose: Compose<I, R>): GlyphScope<P, A, I, R> =
-        GlyphScope(scope, parent, actions, input, compose(input))
+    operator fun <T> Compose<I, T>.unaryPlus(): GlyphScope<P, R, I, T> = plus(this)
+    operator fun <T> plus(compose: Compose<I, T>): GlyphScope<P, R, I, T> =
+        GlyphScope(parent, resources, input, compose(input), context)
 
-    operator fun Glyph<P, A, I, O>.unaryPlus(): Dispose = plus(this)
-    operator fun plus(glyph: Glyph<P, A, I, O>): Dispose {
-        val jobs = mutableListOf<Dispose>()
-        val disposeGlyph = glyph(this) { receive ->
-            scope
-                .launch { output.collect { receive(it) } }
-                .toDispose()
-                .let(jobs::add)
+    operator fun Glyph<P, R, I, O>.unaryPlus(): Dispose = plus(this)
+    operator fun plus(glyph: Glyph<P, R, I, O>): Dispose {
+        val jobs = SupervisorJob()
+        val scope = CoroutineScope(jobs + context)
+        val disposeGlyph = glyph(this) { onBind ->
+            scope.launch {
+                output.collect {
+                    onBind(it)
+                }
+            }
         }
 
         return disposeOf(
-            jobs.asDispose(),
+            disposeOf { jobs.complete() },
             disposeGlyph
         )
     }
 
-    fun <P_, A_, I_, O_> map(transform: (scope: CoroutineScope, parent: P, actions: A, input: Flow<I>, output: Flow<O>) -> GlyphScope<P_, A_, I_, O_>): GlyphScope<P_, A_, I_, O_> =
-        transform(scope, parent, actions, input, output)
+    fun <P_, R_, I_, O_> map(transform: (parent: P, resources: R, input: Flow<I>, output: Flow<O>, context: CoroutineContext) -> GlyphScope<P_, R_, I_, O_>): GlyphScope<P_, R_, I_, O_> =
+        transform(parent, resources, input, output, context)
 
-    companion object
+    companion object {
+
+        operator fun <P, R, I> invoke(
+            parent: P,
+            resources: R,
+            input: Flow<I>,
+            context: CoroutineContext = Dispatchers.Main
+        ) = GlyphScope(parent, resources, input, input, context)
+
+    }
 
 }
-
-private fun Job.toDispose() = disposeOf { cancel() }
-
-operator fun <P, A, I> GlyphScope.Companion.invoke(
-    scope: CoroutineScope = MainScope(),
-    parent: P,
-    actions: A,
-    input: Flow<I>
-): GlyphScope<P, A, I, I> = GlyphScope(scope, parent, actions, input, input)

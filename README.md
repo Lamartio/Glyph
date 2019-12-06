@@ -14,11 +14,11 @@ There are only a couple of elements necessary for building an interactive tree o
 These elements are bundled in an object called `GlyphScope`. When you check the `GlyphScope` signature you will see it receives 4 type parameters. Lets go over them one by one:
 
 - **P**arent: For Android this is usually a ViewGroup since it can add and remove child views.
-- **A**ctions: As desribed above, these are mostly the actions you need trigger when the user clicks or swipes
+- **R**esources: As desribed above, these are mostly the actions you need trigger when the user clicks or swipes
 - **I**nput: The state that is used in your whole presentation layer.
 - **O**utput: The state that is used to render a specific part of the view tree. Traditionally this is the state of your `Fragment` or `UIViewController`. This parameter becomes important when your application grows, but initially you don't need to use it.
 
-When you start a new application you will define your presentation state and your actions. If you have an existent app or a boilerplate project, you can use your `Dagger`'s AppComponent as your actions. For simplicity the below examples use a class called `Actions`. 
+When you start a new application you will define your presentation state and your resources. If you have an existent app or a boilerplate project, you can use your `Dagger`'s AppComponent as your resources. For simplicity the below examples use a class called `Actions`. 
 
 ```kotlin
 data class State(val count: Int = 0)
@@ -77,8 +77,8 @@ fun counterGlyph(): SampleGlyph<Int> =
         val plusView: TextView = layout.findViewById(R.id.plus)
         val minusView: TextView = layout.findViewById(R.id.minus)
 
-        plusView.setOnClickListener { actions.increment() }
-        minusView.setOnClickListener { actions.decrement() }
+        plusView.setOnClickListener { resources.increment() }
+        minusView.setOnClickListener { resources.decrement() }
 
         bind { count: Int ->
             countView.text = count.toString()
@@ -105,8 +105,8 @@ fun counterGlyph(): SampleGlyph<Int> =
         val plusView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.plus)
         val minusView: TextView = layout.findViewById(io.lamart.glyph.sample.R.id.minus)
 
-        plusView.setOnClickListener { actions.increment() }
-        minusView.setOnClickListener { actions.decrement() }
+        plusView.setOnClickListener { resources.increment() }
+        minusView.setOnClickListener { resources.decrement() }
 
         bind { count: Int ->
             countView.text = count.toString()

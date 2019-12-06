@@ -17,7 +17,7 @@ fun personsItemGlyph(): Glyph<ViewGroup, Actions, State, Person> = { bind ->
 
     bind { person ->
         itemView.text = person.name
-        itemView.setOnClickListener { actions.select(person) }
+        itemView.setOnClickListener { resources.select(person) }
     }
 
     disposeOf { parent.removeView(itemView) }

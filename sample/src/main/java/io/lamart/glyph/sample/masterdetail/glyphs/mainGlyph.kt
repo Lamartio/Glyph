@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import io.lamart.glyph.Glyph
 import io.lamart.glyph.disposeOf
-import io.lamart.glyph.output
+import io.lamart.glyph.outputOf
 import io.lamart.glyph.sample.R
 import io.lamart.glyph.sample.masterdetail.Actions
 import io.lamart.glyph.sample.masterdetail.State
@@ -17,8 +17,8 @@ fun mainGlyph(): Glyph<ViewGroup, Actions, State, State> = {
     val masterView = view.findViewById<ViewGroup>(R.id.master)
     val detailView = view.findViewById<ViewGroup>(R.id.detail)
 
-    +masterView + output { it.persons } + personsGlyph()
-    +detailView + output { it.selectedPerson } + personGlyph()
+    +masterView + outputOf { it.persons } + personsGlyph()
+    +detailView + outputOf { it.selectedPerson } + personGlyph()
 
     disposeOf { parent.removeView(view) }
 }

@@ -8,6 +8,7 @@ import io.lamart.glyph.Dispose
 import io.lamart.glyph.GlyphScope
 import io.lamart.glyph.invoke
 import io.lamart.glyph.sample.basic.glyphs.rootGlyph
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val view: ViewGroup = FrameLayout(this)
         val channel = ConflatedBroadcastChannel(State())
         val actions = Actions(channel)
-        val scope = GlyphScope(MainScope(), view, actions, channel.asFlow())
+        val scope = GlyphScope(view, actions, channel.asFlow())
 
         disposeRoot = scope + rootGlyph()
         setContentView(view)
