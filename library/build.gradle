@@ -16,7 +16,7 @@ publish {
     userOrg 'lamartio'
     groupId 'io.lamart.glyph'
     artifactId 'glyph'
-    publishVersion '2.0.0'
+    publishVersion '2.1.0-RC'
     uploadName 'Glyph-Android'
     desc 'Functional presentation layer architecture.'
     website 'https://github.com/Lamartio/Glyph'
@@ -25,5 +25,5 @@ publish {
     bintrayKey properties['BINTRAY_KEY']
 
     dryRun false
-    override true
+    override false
 }
