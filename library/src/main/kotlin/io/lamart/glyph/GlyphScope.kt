@@ -5,12 +5,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlin.coroutines.CoroutineContext
 
-class GlyphScope<P, R, I, O>(
+class GlyphScope<P, R, I, O> internal constructor(
     val parent: P,
     val resources: R,
     private val input: Flow<I>,
     private val output: Flow<O>,
-    private val context: CoroutineContext = Dispatchers.Main
+    private val context: CoroutineContext
 ) {
 
     operator fun P.unaryPlus(): GlyphScope<P, R, I, O> = plus(this)
@@ -23,8 +23,7 @@ class GlyphScope<P, R, I, O>(
 
     operator fun Glyph<P, R, I, O>.unaryPlus(): Dispose = plus(this)
     operator fun plus(glyph: Glyph<P, R, I, O>): Dispose {
-        val jobs = SupervisorJob()
-        val scope = CoroutineScope(jobs + context)
+        val scope = CoroutineScope(context + Job())
         val disposeGlyph = glyph(this) { onBind ->
             scope.launch {
                 output.collect {
@@ -33,10 +32,7 @@ class GlyphScope<P, R, I, O>(
             }
         }
 
-        return disposeOf(
-            disposeOf { jobs.complete() },
-            disposeGlyph
-        )
+        return disposeOf { scope.cancel() } + disposeGlyph
     }
 
     fun <P_, R_, I_, O_> map(transform: (parent: P, resources: R, input: Flow<I>, output: Flow<O>, context: CoroutineContext) -> GlyphScope<P_, R_, I_, O_>): GlyphScope<P_, R_, I_, O_> =
